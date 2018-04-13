@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.agenda.Main"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".93">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/listgrad"
+            android:text="@string/actionbar_text"
+            style="@style/actionbar_text"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".07"
+        >
+    <Button
+        android:id="@+id/btnStartToDo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To Do List"
+        android:onClick="btn_StartToDo"/>
+
+    <Button
+        android:id="@+id/btnDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Splash Screen"
+        android:onClick="btn_StartDashboard"/>
+
+</LinearLayout>
+</LinearLayout>
