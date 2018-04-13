@@ -165,9 +165,13 @@ public class SMS extends AppCompatActivity
                 SendSMS();
             }
         }
+        else
+        {
+            //for lower than Marshmallow versions uncomment following & cmment out above outer-if()
 
-        //for lower than Marshmallow versions uncomment following & cmment out above outer-if()
-        //SendSMS();
+            SendSMS();
+        }
+
 
 
 
