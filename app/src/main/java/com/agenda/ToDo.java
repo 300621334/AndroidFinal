@@ -69,9 +69,13 @@ public class ToDo extends AppCompatActivity {
         //find all students
         String sql = "select userId AS _id, firstName, status from users JOIN payments using (userId);";
         cursor = db.getAll();
-        cursor.moveToFirst();
-        int index = cursor.getColumnIndex("_desc");
-        String aDescription = cursor.getString(index);
+        if(cursor.moveToFirst())
+        {
+            int index = cursor.getColumnIndex("_desc");
+            String aDescription = cursor.getString(index);
+        }
+
+
 
 
         //set CursorAdapter for ListView

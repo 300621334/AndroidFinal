@@ -34,6 +34,7 @@ public class MyCursorAdapter extends CursorAdapter
     MyCursorAdapter itself;
     TextView txtDateV, txtDescV;
     Button btnDeleteTask;
+    ViewGroup parent;//comment this out normally
     //endregion
 
     //Constructor
@@ -45,26 +46,30 @@ public class MyCursorAdapter extends CursorAdapter
         itself = this;
     }
 
-    //create a new view for ea row in cursor - using inflated list.xml as template
+
+    //create a new view for ea row in cursor - using inflated list.xml as template //issue: ListView Repeats on Scroll bcoz views are reused : https://stackoverflow.com/questions/30631138/items-repeating-when-scrolling-in-listview?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+    //ListView reuses views : https://stackoverflow.com/questions/8261376/duplicated-entries-in-listview
     @Override
     public View newView(Context ctx, Cursor cursor, ViewGroup parent)
     {
-        //get values from db
+        this.parent = parent;//comment this out normally
+/*        //get values from db
         taskID = cursor.getInt(cursor.getColumnIndex("_id"));
         taskDescStr = cursor.getString(cursor.getColumnIndex("_desc"));
-        taskDateStr = getDate( Long.parseLong( cursor.getString(cursor.getColumnIndex("_datetime"))));
+        taskDateStr = getDate( Long.parseLong( cursor.getString(cursor.getColumnIndex("_datetime"))));*/
+
 
         //inflate xml template for each item in ListView
         LayoutInflater inflator = LayoutInflater.from(ctx);
         View v = inflator.inflate(R.layout.listitem, parent, false);//v is LinearLayout of template
-        txtDateV = (TextView)v.findViewById(R.id.txtDateTime);
+/*        txtDateV = (TextView)v.findViewById(R.id.txtDateTime);
         txtDescV = (TextView)v.findViewById(R.id.txtTaskDesc);
         btnDeleteTask = (Button)v.findViewById(R.id.btnDeleteTask);
         txtDescV.setText(taskDescStr);
         txtDateV.setText(taskDateStr);
         MyClkListener listen = new MyClkListener(taskID, db, this, parent, cursor);
         btnDeleteTask.setOnClickListener(listen);
-        txtDescV.setOnClickListener(listen);
+        txtDescV.setOnClickListener(listen);*/
         return v;
     }
 
@@ -84,7 +89,22 @@ public class MyCursorAdapter extends CursorAdapter
 
     //this method is unused but must be present
     @Override
-    public void bindView(View view, Context context, Cursor cursor){}
+    public void bindView(View v, Context context, Cursor cursor)
+    {
+        //get values from db
+        taskID = cursor.getInt(cursor.getColumnIndex("_id"));
+        taskDescStr = cursor.getString(cursor.getColumnIndex("_desc"));
+        taskDateStr = getDate( Long.parseLong( cursor.getString(cursor.getColumnIndex("_datetime"))));
+
+        txtDateV = (TextView)v.findViewById(R.id.txtDateTime);
+        txtDescV = (TextView)v.findViewById(R.id.txtTaskDesc);
+        btnDeleteTask = (Button)v.findViewById(R.id.btnDeleteTask);
+        txtDescV.setText(taskDescStr);
+        txtDateV.setText(taskDateStr);
+        MyClkListener listen = new MyClkListener(taskID, db, this, parent, cursor);
+        btnDeleteTask.setOnClickListener(listen);
+        txtDescV.setOnClickListener(listen);
+    }
 
     //custom listener for each button
     class MyClkListener implements View.OnClickListener

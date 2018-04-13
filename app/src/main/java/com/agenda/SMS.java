@@ -151,7 +151,7 @@ public class SMS extends AppCompatActivity
     public void btn_SendSMS(View view)
     {
         phoneNum = txtPhV.getText().toString().trim();
-        smsTxt = txtSmsV.getText().toString().trim();
+        smsTxt = txtSmsV.getText().toString().trim();//.trim() somehow returns null is empty!!
 
         //check for SMS permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)//M for Marshmallow // Check Permission fails on Android OSes below Marshmallow
@@ -166,12 +166,19 @@ public class SMS extends AppCompatActivity
             }
         }
 
+        //for lower than Marshmallow versions uncomment following & cmment out above outer-if()
+        //SendSMS();
+
+
 
     }
 
     //method to send SMS
     private void SendSMS()
     {
+        //to prevent crash if message body is empty:
+        smsTxt = (smsTxt.equals(""))? " " : smsTxt ;//if smsTxt==empty str then illegalArgumentException by .sendTextMessage()
+
         SmsManager smsMgr = SmsManager.getDefault();
         smsMgr.sendTextMessage(phoneNum,null, smsTxt, notifySmsSent, null);//add permissions to use send SMS
     }

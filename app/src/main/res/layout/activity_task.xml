@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.agenda.Task"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/dashboard_segment1_h">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -39,6 +40,7 @@
             android:textSize="24sp"
             android:layout_gravity="center_vertical"
             android:textAlignment="center"
+            android:background="@color/dashboard_segment3"
             />
 
         <TextView
@@ -50,6 +52,7 @@
             android:textSize="24sp"
             android:layout_gravity="center_vertical"
             android:textAlignment="center"
+            android:background="@color/dashboard_segment4"
             />
 
 
@@ -60,6 +63,12 @@
         android:layout_weight="0.6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:maxLines="10"
+        android:scrollbars="vertical"
         />
 
     <Button
