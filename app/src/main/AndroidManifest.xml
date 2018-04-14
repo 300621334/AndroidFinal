@@ -38,6 +38,7 @@
     <activity android:name=".ZipCode" />
     <activity android:name=".Testing" />
     <activity android:name=".SMS" />
+    <activity android:name=".SMSActivity" />
     <activity android:name=".ToDo" />
     <activity android:name=".Dashboard" />
     <activity android:name=".Main" />

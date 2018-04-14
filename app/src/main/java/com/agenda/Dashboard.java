@@ -76,7 +76,7 @@ public class Dashboard extends AppCompatActivity {
   }
 
   public void goToSMS(View view) {
-    Intent i = new Intent(this, SMS.class);
+    Intent i = new Intent(this, SMSActivity.class);
     startActivity(i);
   }
   public void goToWeather(View view) {
