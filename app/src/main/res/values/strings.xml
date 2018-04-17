@@ -11,4 +11,7 @@ AIzaSyA8QqnmWLlpKH9ECx0Pr0Tu-_Z76eViU_0
     <string name="dashboard_title2">WEATHER</string>
     <string name="dashboard_title3">SEND SMS</string>
     <string name="dashboard_title4">MAP</string>
+
+
+    <string name="action_settings">Settings</string>
 </resources>

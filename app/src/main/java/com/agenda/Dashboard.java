@@ -80,7 +80,7 @@ public class Dashboard extends AppCompatActivity {
     startActivity(i);
   }
   public void goToWeather(View view) {
-    Intent i = new Intent(this, ToDo.class);
+    Intent i = new Intent(this, Weather.class);
     startActivity(i);
   }
 
