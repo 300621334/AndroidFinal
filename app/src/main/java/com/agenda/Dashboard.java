@@ -55,9 +55,11 @@ public class Dashboard extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_dashboard);
 
-//////////////////Handling ToDo list////////////////////////////////////////
     db = new db(getApplicationContext());
     listV = (ListView)findViewById(R.id.dashboard_Todo_list);
+
+ /*//Moved following to onResume() to keep list refreshed
+//////////////////Handling ToDo list////////////////////////////////////////
     cursor = db.getAll();
     cursor.moveToFirst();
     myCurAdaptor = new MyCursorAdapter(this, cursor);
@@ -65,9 +67,25 @@ public class Dashboard extends AppCompatActivity {
     //myCurAdaptor.btnDeleteTask.setBackgroundResource(R.drawable.checkbox);
     listV.setAdapter(myCurAdaptor);
 //////////////////////////////////////////////////////////////////////////
-
-
+*/
     //GetWeather();
+  }
+
+  @Override
+  protected void onResume()
+  {
+    super.onResume();
+
+    //////////////////Handling ToDo list////////////////////////////////////////
+    //db = new db(getApplicationContext());
+    //listV = (ListView)findViewById(R.id.dashboard_Todo_list);
+    cursor = db.getAll();
+    cursor.moveToFirst();
+    myCurAdaptor = new MyCursorAdapter(this, cursor);
+    //myCurAdaptor.btnDeleteTask.setHeight(20);
+    //myCurAdaptor.btnDeleteTask.setBackgroundResource(R.drawable.checkbox);
+    listV.setAdapter(myCurAdaptor);
+//////////////////////////////////////////////////////////////////////////
   }
 
   public void goToToDoList(View view) {

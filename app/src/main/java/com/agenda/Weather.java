@@ -39,11 +39,17 @@ public class Weather extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
+
+
+
           /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
         cityField=(EditText) findViewById(R.id.editText_EC);
         resultWeather=(TextView) findViewById(R.id.textView_Weather);
+
+        //initial weather
+        FindWeather(resultWeather);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +110,19 @@ public class Weather extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            return  null;
+            //return  null;//Dennis's code
+
+            //I changed it or else app crash if city name is misspelled & weather API returns err etc
+            String jsonInCaseOfErr =
+    "{\"weather\":[{\"id\":801,\"main\":\"City Not Found\",\"description\":\"City Not Found\",\"icon\":\"02d\"}]"
+    +",\"main\":{\"temp\":275.72,\"pressure\":1019,\"humidity\":47,\"temp_min\":275.15,\"temp_max\":276.15}"
+    +",\"visibility\":14484,\"wind\":{\"speed\":8.2,\"deg\":320,\"gust\":13.4}"
+    +",\"clouds\":{\"all\":20}"
+    +",\"dt\":1524175680"
+    +",\"sys\":{\"type\":1,\"id\":3721,\"message\":0.0039,\"country\":\"CA\",\"sunrise\":1524133603,\"sunset\":1524182817}"
+    +",\"id\":6167865,\"name\":\"Toronto\",\"cod\":200}";
+
+            return  jsonInCaseOfErr;
         }
 
         @Override

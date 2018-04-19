@@ -47,27 +47,39 @@
         android:layout_weight="0.60"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnNewTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@android:drawable/screen_background_dark_transparent"
             android:onClick="btnClick_NewTask"
-            android:text="Add New Task" />
+            android:scaleType="fitXY"
+            android:src="@drawable/btnnewtask" />
 
+        <!--
         <Button
-            android:id="@+id/btnSMS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SMS"
-            android:onClick="btn_StartSmsActivity"/>
+           android:id="@+id/btnNewTask"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:onClick="btnClick_NewTask"
+           androi"Add New Task" />
 
-        <Button
-            android:id="@+id/button"
-            android:enabled="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="DeleteWholeDB"
-            android:text="Delete DB" />
+
+       <Button
+           android:id="@+id/btnSMS"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="SMS"
+           android:onClick="btn_StartSmsActivity"/>
+
+       <Button
+           android:id="@+id/button"
+           android:enabled="true"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:onClick="DeleteWholeDB"
+           android:text="Delete DB" />
+           -->
     </LinearLayout>
     </LinearLayout>
 </LinearLayout>

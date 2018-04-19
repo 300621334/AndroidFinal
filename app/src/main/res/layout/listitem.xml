@@ -30,7 +30,7 @@
            android:layout_weight="0.1"
            android:layout_width="0dip"
            android:layout_height="40dip"
-           android:background="@drawable/checkbox"
+           android:background="@drawable/recyclebin"
            />
     </LinearLayout>
 

@@ -33,6 +33,7 @@
         android:layout_marginTop="95dp"
         android:ems="10"
         android:hint="Enter City"
+        android:text="Toronto"
         android:inputType="textPersonName"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="54dp"
