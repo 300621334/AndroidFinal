@@ -17,6 +17,10 @@ public class SplashScreen extends AppCompatActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash_screen);
 
+    //IntentService
+    startService(new Intent(this, MyService.class));
+
+
     Thread timer = new Thread(){
       public void run(){
         try{
@@ -24,6 +28,7 @@ public class SplashScreen extends AppCompatActivity
           ImageView icon = (ImageView) findViewById(R.id.icon);
           Animation rotateAni = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
           icon.startAnimation(rotateAni);
+
 
 
           sleep(5500);

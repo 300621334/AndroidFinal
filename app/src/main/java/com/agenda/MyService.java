@@ -1,5 +1,5 @@
-/*
 package com.agenda;
+import android.app.IntentService;
 import android.app.Service;
 
 import android.bluetooth.BluetoothClass;
@@ -9,40 +9,36 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 
-*/
 /**
  * Created by AN on 4/12/2018.
- *//*
+ */
+
+public class MyService extends IntentService
+{
 
 
-public class MyService extends Service {
-    MediaPlayer mediaPlayer;
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+//MUST add a constructor that takes NO arg. or else Manifest file gives errthat default constructor missing
+    public MyService()
+    {
+        super("MyService");
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        //Initializing the MediaPlayer
-        mediaPlayer=MediaPlayer.create(this, Settings.System.DEFAULT_ALARM_ALERT_URI);
+    protected void onHandleIntent(Intent intent)
+    {
+        //set up MediaPlayer
+        //MediaPlayer mp = new MediaPlayer();
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.intro);//https://stackoverflow.com/questions/22906068/how-to-get-file-path-of-asset-folder-in-android
 
-        //making the sound infinate looping
-        mediaPlayer.setLooping(true);
-        mediaPlayer.start();
 
-        //if it is true it will return 1 and if false will return -1
-        return START_STICKY;
+        try {
+            //mp.setDataSource(path + File.separator + fileName);//https://stackoverflow.com/questions/7291731/how-to-play-audio-file-in-android
+            //mp.prepare();
+            mp.start();
+        }
 
-    }
-
-    @Override
-    public void onDestroy() {
-        //stopping player.
-        mediaPlayer.stop();
-        super.onDestroy();
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
-*/

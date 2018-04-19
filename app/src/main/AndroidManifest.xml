@@ -43,6 +43,9 @@
         <activity android:name=".Dashboard" />
         <activity android:name=".Main" />
         <activity android:name=".Weather"></activity>
+
+        <service android:name=".MyService" />
+
     </application>
 
 </manifest>
