@@ -245,6 +245,7 @@ public class Task extends AppCompatActivity {
             //temporary testing activity
             //Intent i = new Intent(this, Testing.class);
             startActivity(i);
+            finish();
         }
         else
         {
