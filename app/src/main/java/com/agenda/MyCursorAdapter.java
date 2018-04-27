@@ -22,6 +22,12 @@ import java.text.SimpleDateFormat;
 /**
  * Created by Shafiq on 2018-03-31.
  */
+/* Group Members are:-
+Abdulghafor Nurali
+Dennis Kanzira
+Md Mamunur Rahman
+Shafiq-Ur-Rehman
+*/
 
 public class MyCursorAdapter extends CursorAdapter
 {

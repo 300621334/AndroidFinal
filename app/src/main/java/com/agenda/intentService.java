@@ -7,6 +7,12 @@ import android.support.annotation.Nullable;
 /**
  * Created by Shafiq on 2018-04-19.
  */
+/* Group Members are:-
+Abdulghafor Nurali
+Dennis Kanzira
+Md Mamunur Rahman
+Shafiq-Ur-Rehman
+*/
 
 public class intentService extends IntentService
 {

@@ -9,6 +9,12 @@ import android.widget.Toast;
 /**
  * Created by Shafiq on 2018-04-14.
  */
+/* Group Members are:-
+Abdulghafor Nurali
+Dennis Kanzira
+Md Mamunur Rahman
+Shafiq-Ur-Rehman
+*/
 
 public class SMSActivity extends AppCompatActivity {
     @Override

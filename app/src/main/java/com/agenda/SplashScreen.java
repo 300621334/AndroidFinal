@@ -8,6 +8,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+/* Group Members are:-
+Abdulghafor Nurali
+Dennis Kanzira
+Md Mamunur Rahman
+Shafiq-Ur-Rehman
+*/
 
 public class SplashScreen extends AppCompatActivity
 {

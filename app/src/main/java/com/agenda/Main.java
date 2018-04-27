@@ -4,6 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+/* Group Members are:-
+Abdulghafor Nurali
+Dennis Kanzira
+Md Mamunur Rahman
+Shafiq-Ur-Rehman
+*/
 
 public class Main extends AppCompatActivity {
 

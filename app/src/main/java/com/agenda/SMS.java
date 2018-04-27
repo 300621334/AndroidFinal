@@ -24,6 +24,12 @@ import android.widget.Toast;
 import android.Manifest;//checkSelfPermission(Manifest.permission.SEND_SMS)
 
 import org.w3c.dom.Text;
+/* Group Members are:-
+Abdulghafor Nurali
+Dennis Kanzira
+Md Mamunur Rahman
+Shafiq-Ur-Rehman
+*/
 
 public class SMS extends AppCompatActivity
 {

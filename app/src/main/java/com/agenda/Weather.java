@@ -28,12 +28,19 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 
+/* Group Members are:-
+Abdulghafor Nurali
+Dennis Kanzira
+Md Mamunur Rahman
+Shafiq-Ur-Rehman
+*/
 
 public class Weather extends AppCompatActivity {
 
     EditText cityField;
     TextView resultWeather;
     String cityToFind;
+    String weatherStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +119,7 @@ public class Weather extends AppCompatActivity {
 
             //return  null;//Dennis's code
 
-            //I changed it or else app crash if city name is misspelled & weather API returns err etc
+            //I added default str or else app crash if city name is misspelled & weather API returns err etc
             String jsonInCaseOfErr =
     "{\"weather\":[{\"id\":801,\"main\":\"City Not Found\",\"description\":\"City Not Found\",\"icon\":\"02d\"}]"
     +",\"main\":{\"temp\":275.72,\"pressure\":1019,\"humidity\":47,\"temp_min\":275.15,\"temp_max\":276.15}"
@@ -133,6 +140,10 @@ public class Weather extends AppCompatActivity {
                 String message="";
                 JSONObject jsonObject = new JSONObject(s);
                 String infoWeatherToday=jsonObject.getString("weather");
+                JSONObject mainJsonObj = jsonObject.getJSONObject("main");
+                weatherStr = mainJsonObj.getString("temp");
+
+
                 JSONArray array = new JSONArray(infoWeatherToday);
                 // now er want to get the texts as they are in JSON
 
@@ -142,8 +153,14 @@ public class Weather extends AppCompatActivity {
                     String description="";
                     main=jsonSecondary.getString("main");
                     description=jsonSecondary.getString("description");
+
+                    //Convert Kelvin into Celcius
+                    double celciusDouble = Double.parseDouble(weatherStr) - 273.16;
+                    int celcius = Double.valueOf(celciusDouble).intValue();
+
+
                     if (main!=""&& description!="" ){
-                        message+=main + ": " + description + "\r\n";
+                        message+=(String.valueOf(celcius) + (char) 0x00B0 + "C") +"\n"+ main + ": " + description + "\r\n";
                     }
                 }
                 if (message != ""){
